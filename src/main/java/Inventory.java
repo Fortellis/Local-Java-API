@@ -35,6 +35,11 @@ public class Inventory extends HttpServlet{
                 throw new ServletException("You must have the same subject in your token");
             }
 
+            if(!request.getHeader("Subscription-Id").equals("{yourSubscribptionId}")){
+                System.out.println("You have not subscribed");
+                throw new ServletException("You must have the correct Subscription-Id to get a response");
+            }
+
             try{
 
                 ClassLoader classLoader = getClass().getClassLoader();
